@@ -186,3 +186,98 @@ These visualizations, created with Matplotlib, are useful for determining how we
 
 
 # House-Price-prediction
+## Additional Libraries Used:- 
+
+#### For this project, we utilized the following Python libraries:
+
+#### 1. Pandas:- 
+
+Purpose: Pandas was utilized to handle and alter the dataset, allowing us to load, clean, and preprocess it quickly. It includes data structures like DataFrames, which make it simple to manage tabular data (such as the house price dataset).
+
+Why We Used It: Pandas is great for working with structured data and doing things like reading CSV files, handling missing values, and doing data transformations. Because our project involves regression on a real estate dataset, Pandas was required to prepare the data before feeding it into the model.
+
+
+#### 2) Matplotlib :-
+
+Matplotlib was used to generate visuals, such as scatter plots and histograms, to aid in the analysis of model performance.
+
+Why Did We Use It?  :-  Visualizing the model's outputs (e.g., actual versus predicted values, residual plots) allows us to assess how well the model matches the data. These visualizations also allow us to identify potential concerns, such as outliers or trends in the residuals, which provides further information about model correctness and opportunities for improvement.
+
+
+###
+
+
+##  Code Structure and Implementation:-
+
+#### 1. ElasticNet Class Implementation:-
+
+We created an ElasticNet class that contains the following important methods:
+
+fit(X, y): This approach trains the model based on the input data (X) and target labels (Y). The training method entails maximizing the coefficients with the regularization parameters.
+
+predict(X): Once the model has been trained, this method uses new input data (X) to forecast the target values.
+
+
+#### 2. Cross Validation:-
+
+We used k-fold cross-validation to evaluate the model's performance. This method divides the data into k parts, trains the model on k-1 parts, and then tests it on the remaining parts. This technique is done k times to ensure that each segment of the data is only utilized as a test set once. This method assesses how well the model generalizes to unseen data.
+
+
+
+
+###
+
+
+
+## Code usage:- 
+
+##### Example of using the code:
+
+To utilize the model, you will have to:
+
+1. Import the required libraries.
+2. Set up the ElasticNet model with specific hyperparameters.
+3. Train the model with the fit() technique.
+4. Use the predict() method to make predictions about outcomes.
+
+
+#### Below is a basic example of how to use the model :-
+
+#### Import the model
+from my_elasticnet_model import ElasticNet
+
+#### Initialize the ElasticNet model with custom parameters
+model = ElasticNet(alpha=0.5, l1_ratio=0.7, max_iter=1000, tol=1e-4)
+
+#### Train the model with training data (X_train and y_train)
+model.fit(X_train, y_train)
+
+#### Generate predictions on the test data
+predictions = model.predict(X_test)
+
+#### Evaluate performance using Mean Squared Error (MSE)
+mse = np.mean((y_test - predictions) ** 2)
+print(f'Mean Squared Error: {mse}')
+
+
+###
+
+
+###  Visualisation of Results:-
+
+In addition to training and prediction, we added visualizations to examine the model's performance:
+
+This scatter plot compares the actual and predicted values. If the model is functioning properly, the points should closely follow the identity line (y = x).
+
+The Residual Histogram illustrates the distribution of residuals (the difference between real and expected values). A well-performing model should have residuals centered around zero and no discernible trend.
+
+These visualizations, created with Matplotlib, are useful for determining how well the model matches the data.
+
+
+
+###  
+
+
+
+
+
